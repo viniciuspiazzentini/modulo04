@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root{
+  --primary-color: #7159c1;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+Body{
+     background-color: var(--primary-color);
+     font-family: 'Roboto', sans-serif;
+}
+
+header{
+    background-color: white;
+    width: 100%;
+    padding: 32px;
+    text-align: center;
+    box-sizing: border-box; /*vai levar todo conteúdo até o limite da largura do conteúdo, funciona para o box-model, para respeitar o que eu colcoar de limite dele*/
+}
+
+.links{
+    font-size: 22px;
+}
+
+.links a + a{ /*Ele pega sempre o segundo ou terceiro a, e daí em diante e coloca uma margem left pra ele somente neste segundo elemento*/
+  margin-left: 32px;
+}
+
+.links a{
+  text-decoration: none;
+  color: #777;
+  position: relative;
+}
+
+.links a.active{
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.links a.hover{
+   text-decoration: underline;
+   color: var(--primary-color);
+}
+
+.links a::after{
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+
+.links a:hover::after{
+    width: 100%;
+    transition: width 200ms cubic-bezier(1, 0.2, 0.65, 0.89); /*O transition pode ter vários elementos para mexer, como width, all, border... /curva beasier é o ease-in-out entre outros, para definição de comos erá o transition/-/o delay pode ser em segundos ou mili-segundos, lembrandop que o delay fica no final/-/width 200ms  ease-in-out 1s//*/
+}
+
+
